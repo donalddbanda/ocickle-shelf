@@ -35,50 +35,10 @@ const features = [
   },
 ]
 
-const waitlistFormId = '6a5c4e9aa1d322fcbd76a1ad'
-const waitlistHost = 'https://rrqgalro.forms.app'
-let waitlistWidget = null
-let waitlistScriptLoaded = false
-
-const loadWaitlistForm = () => {
-  if (waitlistScriptLoaded || document.querySelector('script[src="https://cdn.forms.app/embed.js"]')) {
-    waitlistScriptLoaded = true
-    return
-  }
-
-  const script = document.createElement('script')
-  script.src = 'https://cdn.forms.app/embed.js'
-  script.type = 'text/javascript'
-  script.async = true
-  script.defer = true
-  script.onload = () => {
-    waitlistScriptLoaded = true
-  }
-  document.body.appendChild(script)
-}
+const waitlistUrl = 'https://rrqgalro.forms.app/ocickle-shelf-early-access-waitlist'
 
 const openWaitlistForm = () => {
-  loadWaitlistForm()
-
-  if (!window.formsapp) {
-    window.location.href = waitlistHost
-    return
-  }
-
-  if (!waitlistWidget) {
-    waitlistWidget = new window.formsapp(
-      waitlistFormId,
-      'standard',
-      { width: '100vw', height: '600px' },
-      waitlistHost,
-    )
-  }
-
-  if (typeof waitlistWidget.open === 'function') {
-    waitlistWidget.open()
-  } else {
-    window.location.href = waitlistHost
-  }
+  window.open(waitlistUrl, '_blank', 'noopener,noreferrer')
 }
 
 onMounted(() => {
@@ -99,7 +59,6 @@ onMounted(() => {
     { threshold: 0.2 },
   )
   revealEls.forEach((el) => observer.observe(el))
-  loadWaitlistForm()
 })
 </script>
 
