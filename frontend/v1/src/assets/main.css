@@ -1,0 +1,74 @@
+/* Ocickle Shelf — design tokens
+   Warm, flat, market-stall palette. No green backgrounds (that's Ocickle
+   parent/food territory), no gradients, no glassy shadows. */
+
+:root {
+  --paper: #f6efdf;
+  --paper-deep: #ece1ca;
+  --ink: #241c13;
+  --ink-soft: rgba(36, 28, 19, 0.68);
+  --ink-faint: rgba(36, 28, 19, 0.14);
+
+  --amber: #e2892a;
+  --amber-deep: #c4741f;
+  --clay: #a85c2e;
+  --clay-deep: #7c431f;
+
+  --display: 'Poppins', system-ui, sans-serif;
+  --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', ui-monospace, monospace;
+
+  --container: 1120px;
+  --radius: 14px;
+  --shadow-flat: 5px 5px 0 rgba(36, 28, 19, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay-deep);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
